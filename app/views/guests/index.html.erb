@@ -1,14 +1,19 @@
 <h1>Guests#index</h1>
+<h2>やっほ-</h2>
 <p>Find me in app/views/guests/index.html.erb</p>
+<div>
+    <h5>タグ絞り込み</h5>
+    <!-- タグマスタからタグ一覧を出力する -->
+</div>
 
 <div class="main_contents">
     <% @posts.each do |post| %>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title"><%= post.title %></h5>
+                <h5 class="card-title"></h5></h5><%= post.title %></h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-                <a href="#" class="card-link"></a>
+                <a href="#" class="btn btn-primary">タグ</a>
+                <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
             </div>
         </div>
     <% end %>
