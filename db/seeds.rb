@@ -12,6 +12,7 @@ users = [
 
 users.each do |record|
     User.create!(record) unless User.find_by(email: record[:email])
+end
 
 ["自己紹介", "最近の取り組み", "社長インタビュー"].each do |tag|
   Tag.create(
