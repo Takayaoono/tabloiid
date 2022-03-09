@@ -12,4 +12,23 @@ users = [
 
 users.each do |record|
     User.create!(record) unless User.find_by(email: record[:email])
+
+["自己紹介", "最近の取り組み", "社長インタビュー"].each do |tag|
+  Tag.create(
+    name: tag
+  )
+end
+
+9.times do |n|
+  # １件ずつ作成している
+  post = Post.create!(
+    title: "PDF#{n + 1}",
+    file_path: "#{n + 1}.pdf"
+  )
+
+  PostTag.create(
+    post_id: post.id,
+    # 一旦自己紹介のタグIDである1を指定する
+    tag_id: 1
+  )
 end
