@@ -1,2 +1,11 @@
 <h1>Guests#index</h1>
+<h2>やっほ-</h2>
 <p>Find me in app/views/guests/index.html.erb</p>
+<a>ああああ</a>
+
+<!-- 連想配列をeachでループ処理を行い、各項目を出力する -->
+<div>
+    <% @posts.each do |post| %>
+    <a href="/"><%= post[:title][:tag][:file] %></a>
+    <% end %>
+</div>
