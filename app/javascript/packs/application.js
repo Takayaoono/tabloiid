@@ -15,3 +15,4 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require('jquery')
+require('data-confirm-modal')

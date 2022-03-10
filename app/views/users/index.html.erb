@@ -9,9 +9,9 @@
           <input class="form-control" name="title">
         </div>
 
-        <div class="mb-3">
-          <label for="formFile" class="form-label">PDFファイル</label>
-          <input class="form-control" name="file" type="file" id="formFile" accept=".pdf">
+        <div class="input-group mb-3">
+          <input type="file" class="custom-file-input" id="inputGroupFile" accept=".pdf">
+          <label class="custom-file-label" for="inputGroupFile" aria-describedby="inputGroupFileAddon">PDFファイル</label>
         </div>
 
         <div class="mb-3">
@@ -50,7 +50,7 @@
               </div>
 
               <div>
-                  <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+                  <%= link_to '削除', post, method: :delete, data: { confirm: "#{post.title}を本当に削除しますか？", cancel: 'やめる', commit: '削除する' }, title: '削除確認' %>
               </div>
             </div>
           </div>
