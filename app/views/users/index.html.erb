@@ -14,7 +14,7 @@
 <% end %>
 
 
-<%= form_tag(posts_path, {multipart: true}) do %>
+<%= form_tag(posts_new_path, {multipart: true}) do %>
   <p>title</p>
   <input name="title">
   <p>file</p>
@@ -22,6 +22,15 @@
   <input type="submit" value="保存">
 <% end %>
 
+<div class="dropdown" style="margin-bottom: 50px">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    並べ替え
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a id="asc_button" class="dropdown-item">昇順</a>
+    <a id="desc_button" class="dropdown-item">降順</a>
+  </div>
+</div>
 
 <div class="main_contents">
     <% @posts.each do |post| %>
