@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   #resources :users
   #resources :guests
+  resources :tags
+  resources :posts
   root 'guests#index'
 end

@@ -1,2 +1,39 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
+
+<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
+<%= render partial: "/tags/create_tag_form" %>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_tag_Modal">
+  タグの編集
+</button>
+
+<% @tags.each do |tag| %>
+    </h5><%= tag.name %></h5>
+<% end %>
+
+
+<%= form_tag(posts_path, {multipart: true}) do %>
+  <p>title</p>
+  <input name="title">
+  <p>file</p>
+  <input name="file" type="file">
+  <input type="submit" value="保存">
+<% end %>
+
+
+<div class="main_contents">
+    <% @posts.each do |post| %>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"></h5></h5><%= post.title %></h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
+                <div>
+                    <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
