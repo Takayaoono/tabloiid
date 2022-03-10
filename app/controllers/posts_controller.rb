@@ -19,9 +19,9 @@ class PostsController < ApplicationController
     redirect_to admin_path
   end
 
-  def new
-  end
-
   def destroy
+    post = Post.find(params[:id])
+    post.discard
+    redirect_to admin_path
   end
 end
