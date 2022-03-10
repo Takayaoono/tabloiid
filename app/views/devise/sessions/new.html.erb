@@ -2,14 +2,16 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <h1 class="h3 mb-3 fw-normal">Log in</h1>
 
-    <div class="form-floating">
-      <%= f.text_field :username, autofocus: true, autocomplete: "username", :class => 'form-control', :placeholder => 'username' %>
+    <div class="form-floating mb-3">
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", id: 'floatingUsername', :class => 'form-control', :placeholder => 'username' %>
+      <%= f.label :username, for: 'floatingUsername' %>
     </div>
       
-    <div class="form-floating">
-      <%= f.password_field :password, autocomplete: "current-password", :class => 'form-control', :placeholder => 'password' %>
+    <div class="form-floating mb-3">
+      <%= f.password_field :password, autocomplete: "current-password", id: 'floatingPassword', :class => 'form-control', :placeholder => 'password' %>
+      <%= f.label :password, for: 'floatingPassword' %>
     </div>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
   <% end %>
 </div>
