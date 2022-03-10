@@ -1,44 +1,61 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-
 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 
-<%= render partial: "/tags/create_tag_form" %>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_tag_Modal">
-  タグの編集
-</button>
-
-<% @tags.each do |tag| %>
-    </h5><%= tag.name %></h5>
-<% end %>
-
-
-<%= form_tag(posts_path, {multipart: true}) do %>
-    <p>title</p>
-    <input name="title">
-    <p>file</p>
-    <div class="mb-3">
-        <input class="form-control" name="file" type="file" id="formFile" accept=".pdf">
-    </div>
-    <input type="submit" value="保存">
-<% end %>
-
-
-<div class="main_contents">
-    <% @posts.each do |post| %>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"></h5></h5><%= post.title %></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
-                <div>
-                    <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
-                </div>
-                <div>
-                    <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-                </div>
-            </div>
+<section class="py-5 container">
+  <div class="py-lg-5">
+    <%= form_tag(posts_path, {multipart: true}) do %>
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <div class="mb-3">
+          <label for="formFile" class="form-label">タイトル</label>
+          <input class="form-control" name="title">
         </div>
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">PDFファイル</label>
+          <input class="form-control" name="file" type="file" id="formFile" accept=".pdf">
+        </div>
+
+        <div>
+          <% @tags.each do |tag| %>
+            <button type="button" class="btn btn-light"><%= tag.name %></button>
+          <% end %>
+        </div>
+
+        <input type="submit" value="保存">
+      </div>
     <% end %>
+  </div>
+</section>
+
+<div class="container">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_tag_Modal">
+    タグの編集
+  </button>
+  <%= render partial: "/tags/create_tag_form" %>
+</div>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @posts.each do |post| %>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <div>
+                <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
+              </div>
+
+              <div>
+                <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
+              </div>
+
+              <div>
+                  <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
