@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_051304) do
+ActiveRecord::Schema.define(version: 2022_03_10_075117) do
 
   create_table "post_tags", force: :cascade do |t|
     t.integer "post_id"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2022_03_09_051304) do
     t.string "file_path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_posts_on_discarded_at"
   end
 
   create_table "tags", force: :cascade do |t|
