@@ -14,9 +14,6 @@
  *= require_self
  */
 
-button:disabled {
-  background: #007BFF;
-}
 
 #disabled_button {
   padding: 6px 12px 6px 12px;
