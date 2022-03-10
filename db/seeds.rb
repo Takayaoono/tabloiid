@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = [
-    {username: 'iid_admin', email:'a@gmail.com', password: 'aaaaaa'}
+    {username: 'iid_admin', email:'a@gmail.com', password: 'aaaaaa'},
+    {username: 'ma21005', email:'x1nano0513@gmail.com', password: 'aaaaaa'}
 ]
 
 users.each do |record|

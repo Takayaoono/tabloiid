@@ -11,7 +11,7 @@
 
         <div class="modal-body">
           <div class="form-group field">
-            <%= form.label "名前" , class: "form-control-label"%>
+            <%= form.label "タグ名" , class: "form-control-label"%>
             <%= form.text_field :name, class: "form-control"%>
           </div>
           <%= form.submit class: "btn btn-primary"%>
@@ -26,6 +26,7 @@
         </div>
 
         <div class="modal-footer actions">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       <% end %>
     </div>
