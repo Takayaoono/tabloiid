@@ -27,9 +27,11 @@ end
     file_path: "#{n + 1}.pdf"
   )
 
-  PostTag.create(
-    post_id: post.id,
-    # 一旦自己紹介のタグIDである1を指定する
-    tag_id: 1
-  )
+  2.times do |n|
+    PostTag.create(
+      post_id: post.id,
+      # 一旦自己紹介のタグIDである1を指定する
+      tag_id: n + 1
+    )
+  end
 end
