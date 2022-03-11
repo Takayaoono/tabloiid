@@ -20,13 +20,11 @@
   タグの追加・削除
 </button>
 
-
 <%= render partial: "/tags/search_tag_form" %>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#search_tag_Modal">
   タグの絞り込み
 </button>
-
 
 <div class="dropdown" style="margin-bottom: 50px">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +46,9 @@
                 <%= link_to "編集", "tag_edit/#{post.id}", remote: true %>
                 <div>
                     <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
+                </div>
+                <div>
+                    <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
                 </div>
             </div>
         </div>
