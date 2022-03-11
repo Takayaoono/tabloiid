@@ -56,7 +56,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'kaminari'
+
 gem 'dotenv-rails' #deviseパスワード変更
 gem 'net-smtp', require: false #deviseパスワード変更
 
@@ -64,3 +64,5 @@ gem 'net-smtp', require: false #deviseパスワード変更
 #登録したgmailのGoogleアカウントで二段階認証とアプリパスワードを設定
 #設定された16桁のアプリパスワードを「onfig/environments/development.rb」の:passwordにアプリパスワードを記入
 #Googleパスワードを再設定すると、アプリパスワードが自動的に削除されるのでその時は新しいアプリパスワードを記入する必要がある
+
+gem 'discard'

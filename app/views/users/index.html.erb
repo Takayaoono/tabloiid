@@ -20,12 +20,21 @@
   タグの追加・削除
 </button>
 
-
 <%= render partial: "/tags/search_tag_form" %>
 
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#search_tag_Modal">
   タグの絞り込み
 </button>
+
+<%= form_tag(posts_path, {multipart: true}) do %>
+    <p>title</p>
+    <input name="title">
+    <p>file</p>
+    <div class="mb-3">
+        <input class="form-control" name="file" type="file" id="formFile" accept=".pdf">
+    </div>
+    <input type="submit" value="保存">
+<% end %>
 
 <div class="dropdown" style="margin-bottom: 50px">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -46,6 +55,9 @@
                 <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
                 <div>
                     <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
+                </div>
+                <div>
+                    <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
                 </div>
             </div>
         </div>
