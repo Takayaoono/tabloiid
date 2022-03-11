@@ -1,16 +1,23 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 <div id="UsermodalArea">
   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
 
-  <%= form_tag(posts_path, {multipart: true}) do %>
-      <p>title</p>
-      <input name="title">
-      <div class="mb-3">
-          <input class="form-control" name="file" type="file" id="formFile" accept=".pdf">
-      </div>
-      <input type="submit" value="保存">
-  <% end %>
+  <section class="py-5 container">
+    <div class="py-lg-4">
+      <%= form_tag(posts_path, {multipart: true}) do %>
+        <div class="py-lg-2 col-lg-6 col-md-8 mx-auto border">
+          <div class="mb-3">
+            <label for="formFile" class="form-label">タイトル</label>
+            <input class="form-control" name="title">
+          </div>
+          <div class="input-group mb-3">
+            <input type="file" name="file" class="custom-file-input" id="formFile" accept=".pdf">
+            <label class="custom-file-label" for="formFile" aria-describedby="inputGroupFileAddon">PDFファイル</label>
+          </div>
+          <input class="btn btn-primary" type="submit" value="投稿">
+        </div>
+      <% end %>
+    </div>
+  </section>
 </div>
 
 <%= render partial: "/tags/create_tag_form" %>
@@ -26,7 +33,7 @@
 </button>
 
 <div class="dropdown" style="margin-bottom: 50px">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
     並べ替え
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -35,21 +42,30 @@
   </div>
 </div>
 
-<div class="main_contents">
-    <% @posts.each do |post| %>
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title"></h5></h5><%= post.title %></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="main_contents row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @posts.each do |post| %>
+        <div class="col mb-4">
+          <div class="card" style="width: 18rem;">
+              <h5 class="card-title"><%= post.title %></h5>
+
+              <div>
                 <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
-                <%= link_to "編集", "tag_edit/#{post.id}", remote: true %>
-                <div>
-                    <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
-                </div>
-                <div>
-                    <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
-                </div>
-            </div>
+              </div>
+
+              <%= link_to "編集", "tag_edit/#{post.id}", remote: true %>
+              
+              <div>
+                  <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
+              </div>
+
+              <div>
+                  <%= link_to '削除', post, method: :delete, data: { confirm: "#{post.title}を本当に削除しますか？", cancel: 'やめる', commit: '削除する' }, title: '削除確認' %>
+              </div>
+          </div>
         </div>
-    <% end %>
+      <% end%>
+    </div>
+  </div>
 </div>
