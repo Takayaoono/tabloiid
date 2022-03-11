@@ -10,14 +10,8 @@
         </div>
 
         <div class="input-group mb-3">
-          <input type="file" class="custom-file-input" id="inputGroupFile" accept=".pdf">
-          <label class="custom-file-label" for="inputGroupFile" aria-describedby="inputGroupFileAddon">PDFファイル</label>
-        </div>
-
-        <div class="mb-3">
-          <% @tags.each do |tag| %>
-            <button type="button" class="btn btn-light"><%= tag.name %></button>
-          <% end %>
+          <input type="file" name="file" class="custom-file-input" id="formFile" accept=".pdf">
+          <label class="custom-file-label" for="formFile" aria-describedby="inputGroupFileAddon">PDFファイル</label>
         </div>
 
         <input class="btn btn-primary" type="submit" value="投稿">
