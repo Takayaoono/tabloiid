@@ -9,5 +9,8 @@
         <div>
             <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
         </div>
+        <div>
+            <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+        </div>
     </div>
 </div>

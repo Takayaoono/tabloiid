@@ -6,7 +6,7 @@ document.addEventListener('turbolinks:load', () => {
 
     const SortFuncAsc = () => {
         $.ajax({
-            url: '/posts/index',
+            url: 'posts/sort/indx',
             type: 'GET',
             dataType: 'html',
             data: {
@@ -20,7 +20,7 @@ document.addEventListener('turbolinks:load', () => {
 
     const SortFuncDesc = () => {
         $.ajax({
-           url: '/posts/index',
+           url: 'posts/sort/indx',
            type: 'GET',
            dataType: 'html',
            data: {
