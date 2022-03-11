@@ -29,21 +29,10 @@ document.addEventListener('turbolinks:load', () => {
         }).done(data => {
            $('.main_contents').html(data)
         })
-        console.log(2)
      };
 
     asc_button.addEventListener('click', SortFuncAsc);
     desc_button.addEventListener('click', SortFuncDesc); 
-
-
-    //-------------------Tagサーチ機能-------------------------
-    //const search_button = document.getElementsByClassName('tag_search_button');
-
-    //const SearchFuncTag = () => {
-    //    console.log(5)
-    //};
-
-    //search_button.addEventListener('click', SearchFuncTag);
 })
 
 
