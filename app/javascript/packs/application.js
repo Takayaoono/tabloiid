@@ -10,10 +10,12 @@ import "channels"
 import 'bootstrap'
 import '../stylesheets/application'
 import "./common"
+import JQuery from "jquery"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 require('jquery')
+window.$ = window.JQuery = JQuery;
 require('data-confirm-modal')
