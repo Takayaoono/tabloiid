@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   #resources :users
   #resources :guests
   resources :tags
-  resources :posts
+  #resources :posts
+  get 'posts/index'
+  get 'posts/new'
+  get 'posts/create'
+  get 'posts/sort'
   root 'guests#index'
 end
