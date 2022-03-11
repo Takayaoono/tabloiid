@@ -28,7 +28,6 @@ document.addEventListener('turbolinks:load', () => {
         }).done(data => {
            $('.main_contents').html(data)
         })
-        console.log(2)
      };
    
    
