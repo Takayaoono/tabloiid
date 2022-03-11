@@ -2,6 +2,7 @@
 
 
 
+        <div class="col">
           <div class="card" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title"><%= post.title %></h5>
@@ -13,10 +14,10 @@
                 <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
                 <% if user_signed_in? %>
                     <%= link_to "編集", "tag_edit/#{post.id}", remote: true %>
+                    <%= link_to '削除', post, method: :delete, data: { confirm: "#{post.title}を本当に削除しますか？", cancel: 'やめる', commit: '削除する' }, title: '削除確認' %>
                 <% end %>
-              </div>
-              <div>
-                <%= link_to '削除', post, method: :delete, data: { confirm: "#{post.title}を本当に削除しますか？", cancel: 'やめる', commit: '削除する' }, title: '削除確認' %>
               </div>
             </div>
           </div>
+        </div>
+ 
