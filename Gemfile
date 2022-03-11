@@ -57,7 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
-gem 'dotenv-rails' #deviseパスワード変更
 gem 'net-smtp', require: false #deviseパスワード変更
 
 #----deviseによるパスワード変更設定----
