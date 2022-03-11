@@ -7,10 +7,15 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-import "./common"   
+import 'bootstrap'
+import '../stylesheets/application'
+import "./common"
+import JQuery from "jquery"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 require('jquery')
+window.$ = window.JQuery = JQuery;
+require('data-confirm-modal')

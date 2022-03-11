@@ -1,38 +1,42 @@
-<h1>Guests#index</h1>
-<h2>やっほ-</h2>
-<p>Find me in app/views/guests/index.html.erb</p>
+<div class="py-5">
+    <%= render partial: "/tags/search_tag_form" %>
 
-<%= render partial: "/tags/search_tag_form" %>
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#search_tag_Modal">
-  タグの絞り込み
-</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#search_tag_Modal">
+      タグの絞り込み
+    </button>
 
 
-<div class="dropdown" style="margin-bottom: 50px">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    並べ替え
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a id="asc_button" class="dropdown-item">昇順</a>
-    <a id="desc_button" class="dropdown-item">降順</a>
-  </div>
+    <div class="dropdown" style="margin-bottom: 50px">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        並べ替え
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a id="asc_button" class="dropdown-item">昇順</a>
+        <a id="desc_button" class="dropdown-item">降順</a>
+      </div>
+    </div>
 </div>
 
-
-
-<div class="main_contents">
-    <% @posts.each do |post| %>
-        <div class="card" style="width: 18rem;">
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="main_contents row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <% @posts.each do |post| %>
+        <div class="col">
+          <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title"><%= post.title %></h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <h5 class="card-title"><%= post.title %></h5>
+              <div>
+                <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
+              </div>
+
+              <div>
                 <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
-                <div>
-                    <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 

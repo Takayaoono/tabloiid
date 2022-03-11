@@ -1,16 +1,22 @@
-<div class="card" style="width: 18rem;">
+<div class="col">
+    <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title"></h5></h5><%= post.title %></h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title"><%= post.title %></h5>
+        <div>
+        <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
+        </div>
+
+        <div>
         <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
-        <% if user_signed_in? %>
-            <%= link_to "編集", "tag_edit/#{post.id}", remote: true %>
-        <% end %>
+        </div>
+
+        <%= link_to "編集", "tag_edit/#{post.id}", remote: true %>
         <div>
             <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
         </div>
         <div>
-            <%= link_to '削除', post, method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            <%= link_to '削除', post, method: :delete, data: { confirm: "#{post.title}を本当に削除しますか？", cancel: 'やめる', commit: '削除する' }, title: '削除確認' %>
         </div>
+    </div>
     </div>
 </div>
