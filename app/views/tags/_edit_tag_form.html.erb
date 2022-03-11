@@ -1,0 +1,30 @@
+<%# 投稿したデータにタグの追加・削除を行う管理者用のモーダル%>
+<div class="modal fade" id="edit_tag_Modal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <h4 class="modal-title"><%= @post.title %></h4>
+        <div class="modal-header">
+          <h5 class="modal-title">タグの追加</h5>
+        </div>
+        <div class="modal-body">
+          <% @tags.each do |tag| %>
+            <%= link_to tag.name, "/tag_edit/#{@post.id}/#{tag.id}", class: 'btn btn-default', method: :post %>
+          <% end %>
+        </div>
+
+        <div class="modal-header">
+          <h5 class="modal-title">タグの削除</h5>
+        </div>
+
+        <div class="modal-body">
+          <% @hold_tags.each do |tag| %>
+            <%= link_to tag.name, "/tag_edit/#{@post.id}/#{tag.id}", class: 'btn btn-default', method: :delete %>
+          <% end %>
+        </div>
+
+        <div class="modal-footer actions">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>

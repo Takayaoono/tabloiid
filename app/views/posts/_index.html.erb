@@ -3,6 +3,9 @@
         <h5 class="card-title"></h5></h5><%= post.title %></h5>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         <a target="_blank" href="/pdf/<%= post.file_path %>" class="card-link">開く</a>
+        <% if user_signed_in? %>
+            <%= link_to "編集", "tag_edit/#{post.id}", remote: true %>
+        <% end %>
         <div>
             <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
         </div>
