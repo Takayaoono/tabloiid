@@ -14,7 +14,6 @@
         <div>
             <%= render partial: "tags/tag", collection: post.tags, as: :tag %>
         </div>
-        
         <div>
             <%= link_to '削除', post, method: :delete, data: { confirm: "#{post.title}を本当に削除しますか？", cancel: 'やめる', commit: '削除する' }, title: '削除確認' %>
         </div>

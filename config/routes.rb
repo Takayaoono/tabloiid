@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #resources :guests
   resources :tags
   resources :posts #Postのソート機能の時に別のアクションを呼び出してしまうのでpost_controllerのルーティングを自分で設定
-
+  get 'posts/sort/indx' => 'posts#index'
   get 'tags/search/:id' => 'tags#search' #タグ絞り込み検索用ルーティング
   get 'tags_reset' => 'tags#reset' #タグ絞り込みの「全て表示」用ルーティング
   get 'tag_edit/:post_id' => 'tags#edit' #1つのpostに対してのタグの追加・削除を行うモーダル用ルーティング
