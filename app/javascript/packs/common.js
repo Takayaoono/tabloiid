@@ -1,5 +1,6 @@
 document.addEventListener('turbolinks:load', () => {
 
+    //-------------------Postソート機能-------------------------
     const asc_button = document.getElementById('asc_button');
     const desc_button = document.getElementById('desc_button');
 
@@ -29,8 +30,7 @@ document.addEventListener('turbolinks:load', () => {
            $('.main_contents').html(data)
         })
      };
-   
-   
+
     asc_button.addEventListener('click', SortFuncAsc);
     desc_button.addEventListener('click', SortFuncDesc); 
 })

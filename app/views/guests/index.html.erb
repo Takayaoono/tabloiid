@@ -1,10 +1,25 @@
 <h1>Guests#index</h1>
 <h2>やっほ-</h2>
 <p>Find me in app/views/guests/index.html.erb</p>
-<div>
-    <h5>タグ絞り込み</h5>
-    <!-- タグマスタからタグ一覧を出力する -->
+
+<%= render partial: "/tags/search_tag_form" %>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#search_tag_Modal">
+  タグの絞り込み
+</button>
+
+
+<div class="dropdown" style="margin-bottom: 50px">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    並べ替え
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a id="asc_button" class="dropdown-item">昇順</a>
+    <a id="desc_button" class="dropdown-item">降順</a>
+  </div>
 </div>
+
+
 
 <div class="main_contents">
     <% @posts.each do |post| %>

@@ -26,8 +26,17 @@ class TagsController < ApplicationController
     redirect_to admin_path
   end
 
+  def search
+    @tag = Tag.find(params[:id])
+    @posts = @tag.posts
+  end
+
+  def reset
+    @posts = Post.all
+  end
+
   private
-  def tag_params 
+  def tag_params
     params.require(:tag).permit(:name)
   end
 end
