@@ -2,7 +2,7 @@
 
 <section class="py-5 container">
   <div class="py-lg-4">
-    <%= form_tag(posts_path, {multipart: true}) do %>
+    <%= form_tag(posts_new_path, {multipart: true}) do %>
       <div class="py-lg-2 col-lg-6 col-md-8 mx-auto border">
         <div class="mb-3">
           <label for="formFile" class="form-label">タイトル</label>
@@ -21,10 +21,27 @@
 </section>
 
 <div class="mb-3">
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_tag_Modal">
-    タグの編集
-  </button>
   <%= render partial: "/tags/create_tag_form" %>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit_tag_Modal">
+    タグの追加・削除
+  </button>
+
+  <%= render partial: "/tags/search_tag_form" %>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#search_tag_Modal">
+    タグの絞り込み
+  </button>
+</div>
+
+<div class="dropdown" style="margin-bottom: 50px">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    並べ替え
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a id="asc_button" class="dropdown-item">昇順</a>
+    <a id="desc_button" class="dropdown-item">降順</a>
+  </div>
 </div>
 
 <div class="album py-5 bg-light">

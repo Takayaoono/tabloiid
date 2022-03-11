@@ -1,5 +1,11 @@
 class PostsController < ApplicationController
   def index
+    if params[:sort_value] == "release_asc"
+      @posts = Post.order(created_at: "asc")
+    else
+      @posts = Post.order(created_at: "desc")
+    end
+    render partial: "posts/index", collection: @posts, as: 'post'
   end
 
   def new
@@ -24,4 +30,5 @@ class PostsController < ApplicationController
     post.discard
     redirect_to admin_path
   end
+    
 end
